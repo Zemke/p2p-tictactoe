@@ -1,3 +1,12 @@
 extends layout
 
+block lead
+    | Hey, nice to welcome you!
+    br
+    | Your ID: {{peersId}}
+
 block content
+    div.input-group
+        input.form-control(type="text", placeholder="Play with your friend by entering her or his ID here — have fun!")
+        span.input-group-btn
+            button.btn.btn-default(type="button") Start the Game

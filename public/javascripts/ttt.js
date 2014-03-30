@@ -1,16 +1,22 @@
-var peer = new Peer({key: '4o5t8qjc9ncrqkt9'});
-// You can pick your own id or omit the id if you want to get a random one from the server.
+var tttApp = angular.module('tttApp', []);
 
-// Connect
-var conn = peer.connect('another-peers-id');
-conn.on('open', function(){
-    conn.send('hi!');
-});
+tttApp.controller('TttAppCtrl', function ($scope) {
+    var peersId = randomString();
+    var peer = new Peer(peersId, {key: '4o5t8qjc9ncrqkt9'});
 
-// Receive
-peer.on('connection', function(conn) {
-    conn.on('data', function(data){
-        // Will print 'hi!'
-        console.log(data);
+    peer.on('open', function (id) {
+        console.log('open event emitted');
+        console.log(id);
     });
+
+    $scope.peersId = peersId;
 });
+
+
+function randomString() {
+    var chars = '01234567890123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var length = 18;
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+}
