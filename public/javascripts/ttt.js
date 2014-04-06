@@ -14,8 +14,8 @@ tttApp.controller('TttAppCtrl', function ($scope, $q, $rootScope) {
         console.log('open event emitted');
         console.log(id);
 
-        var deferred = promiseBaby($q, $rootScope, id);
-        $scope.peersId = deferred.promise;
+        var promise = promiseBaby($q, $rootScope, id);
+        $scope.peersId = promise.promise;
         $scope.peersId.then(function (resp) {
             $scope.peersId = resp;
         });
@@ -44,9 +44,9 @@ tttApp.controller('TttAppCtrl', function ($scope, $q, $rootScope) {
 });
 
 function promiseBaby($q, $rootScope, data) {
-    var deferred = $q.defer();
+    var promise = $q.defer();
     $rootScope.$apply(function () {
-        deferred.resolve(data);
+        promise.resolve(data);
     });
-    return deferred;
+    return promise;
 }
