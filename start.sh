@@ -1,0 +1,1 @@
+supervisor -e 'jade|js' node app.js
