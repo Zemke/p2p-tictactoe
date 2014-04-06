@@ -1,8 +1,25 @@
 var tttApp = angular.module('tttApp', []);
 
-tttApp.controller('TttAppCtrl', function ($scope) {
-    var peersId = randomString();
-    var peer = new Peer(peersId, {key: '4o5t8qjc9ncrqkt9'});
+// @formatter:off
+var fields = [
+        [], [], [],
+        [], [], [],
+        [], [], []
+    ];
+// @formatter:on
+tttApp.controller('TttAppCtrl', function ($scope, $q, $rootScope) {
+    var peer = new Peer({key: '4o5t8qjc9ncrqkt9'});
+
+    peer.on('open', function (id) {
+        console.log('open event emitted');
+        console.log(id);
+
+        var deferred = promiseBaby($q, $rootScope, id);
+        $scope.peersId = deferred.promise;
+        $scope.peersId.then(function (resp) {
+            $scope.peersId = resp;
+        });
+    });
 
     peer.on('connection', function (conn) {
         conn.on('data', function (data) {
@@ -23,15 +40,13 @@ tttApp.controller('TttAppCtrl', function ($scope) {
         });
     };
 
-    $scope.otherPeersId = "";
-    $scope.peersId = peersId;
+    $scope.otherPeersId = '';
 });
 
-
-function randomString() {
-    var chars = '01234567890123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var length = 18;
-    var result = '';
-    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
-    return result;
+function promiseBaby($q, $rootScope, data) {
+    var deferred = $q.defer();
+    $rootScope.$apply(function () {
+        deferred.resolve(data);
+    });
+    return deferred;
 }
