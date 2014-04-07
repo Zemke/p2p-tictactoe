@@ -1,12 +1,20 @@
 extends layout
 
+block styles
+  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap-theme.min.css')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/sticky-footer.css')
+block scripts
+  script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.min.js')
+  script(src='/javascripts/bootstrap.min.js')
+  script(src='http://cdn.peerjs.com/0.3.8/peer.min.js')
+  script(src='/javascripts/ttt.js')
 block lead
-    | Hey, nice to welcome you!
-    br
-    | Your ID: {{peersId}}
+  | Hey, nice to welcome you!
+  br
+  | Your ID: {{peersId}}
 
 block content
-    form(ng-submit="startGame()").input-group
-        input.form-control(type="text", placeholder="Play with your friend by entering her or his ID here — have fun!", ng-model="otherPeersId")
-        span.input-group-btn
-            button.btn.btn-default(type="submit") Start the Game
+  ng-include(src="templateForState()")

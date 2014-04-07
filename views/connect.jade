@@ -1,0 +1,10 @@
+extends scaffold
+
+block head
+  script(src="javascripts/connecting-crtl")
+
+block body
+  form(ng-submit="startGame()").input-group
+    input.form-control(type="text", placeholder="Play with your friend by entering her or his ID here — have fun!", ng-model="otherPeersId")
+    span.input-group-btn
+      button.btn.btn-default(type="submit") Start the Game
