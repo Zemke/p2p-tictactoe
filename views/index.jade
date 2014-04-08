@@ -7,14 +7,11 @@ block styles
   link(rel='stylesheet', href='/stylesheets/sticky-footer.css')
 block scripts
   script(src='http://code.jquery.com/jquery-1.11.0.min.js')
-  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.4/angular.min.js')
   script(src='/javascripts/bootstrap.min.js')
   script(src='http://cdn.peerjs.com/0.3.8/peer.min.js')
-  script(src='/javascripts/ttt.js')
-block lead
-  | Hey, nice to welcome you!
-  br
-  | Your ID: {{peersId}}
-
+  script(src='/javascripts/ttt-service.js')
+  script(src='/javascripts/index-ctrl.js')
+  script(src='/javascripts/connect-ctrl.js')
 block content
-  ng-include(src="templateForState()")
+  div(ng-controller="IndexCtrl")
+    ng-include(src="templateForState()")
