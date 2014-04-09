@@ -3,8 +3,8 @@ extends layout
 block styles
   link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
   link(rel='stylesheet', href='/stylesheets/bootstrap-theme.min.css')
-  link(rel='stylesheet', href='/stylesheets/style.css')
   link(rel='stylesheet', href='/stylesheets/sticky-footer.css')
+  link(rel='stylesheet', href='/stylesheets/style.css')
 block scripts
   script(src='/javascripts/libs/jquery.min.js')
   script(src='/javascripts/libs/bootstrap.min.js')
@@ -14,6 +14,7 @@ block scripts
   script(src='/javascripts/error-service.js')
   script(src='/javascripts/index-ctrl.js')
   script(src='/javascripts/connect-ctrl.js')
+  script(src='/javascripts/playing-ctrl.js')
 block content
   div(ng-controller="IndexCtrl")
     ng-include(src="indexService.template")

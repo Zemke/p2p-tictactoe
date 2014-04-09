@@ -1,4 +1,10 @@
-p.lead
-  | You have connected with your friend — have fun playing!
-
-
+div(ng-controller="PlayingCtrl")
+  p.lead
+    | You have connected with your friend — have fun playing!
+  table#board(border="1")
+    tr(ng-repeat="row in tttService.board track by $index")
+      td(ng-repeat="field in row track by $index", ng-click="tttService.placeMySignHere($parent.$index, $index)")
+        | {{field}}
+  | {{tttService.otherPeersId}}
+  br
+  | {{tttService.peersId}}
