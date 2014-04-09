@@ -11,6 +11,10 @@ exports.connect = function(req, res){
   res.render('connect');
 };
 
-exports.fields = function(req, res){
-  res.render('fields');
+exports.playing = function(req, res){
+  res.render('playing');
+};
+
+exports.error = function(req, res){
+  res.render('error');
 };

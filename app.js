@@ -30,7 +30,8 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/connect', routes.connect);
-app.get('/fields', routes.fields);
+app.get('/playing', routes.playing);
+app.get('/error', routes.error);
 
 var server = http.createServer(app);
 
