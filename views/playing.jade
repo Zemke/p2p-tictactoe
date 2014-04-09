@@ -5,6 +5,3 @@ div(ng-controller="PlayingCtrl")
     tr(ng-repeat="row in tttService.board track by $index")
       td(ng-repeat="field in row track by $index", ng-click="tttService.placeMySignHere($parent.$index, $index)")
         | {{field}}
-  | {{tttService.otherPeersId}}
-  br
-  | {{tttService.peersId}}
