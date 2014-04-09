@@ -4,7 +4,13 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
 
   self.peer.on('connection', function (conn) {
     conn.on('data', function (data) {
-      console.log(data);
+      console.log('sending');
+      IndexService.template = IndexService.AvailableTemplate.PLAYING;
+      var deferred = $q.defer();
+      $rootScope.$apply(function () {
+        deferred.resolve(IndexService.AvailableTemplate.PLAYING);
+      });
+      IndexService.template = IndexService.AvailableTemplate.PLAYING;
     });
   });
 
@@ -13,11 +19,9 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
   });
 
   self.connectToOtherPeer = function (otherPeersId) {
-    console.log('self.peer = ' + self.peer);
     IndexService.template = IndexService.AvailableTemplate.PLAYING;
     var conn = self.peer.connect(otherPeersId);
     conn.on('open', function () {
-      console.log('connection emitted open event');
       conn.send('Hey, other peer!');
     });
   };

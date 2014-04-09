@@ -4,5 +4,6 @@ tttApp.service('IndexService', function ($q, ErrorService) {
     CONNECT: 'connect',
     PLAYING: 'playing'
   };
+
   self.template = self.AvailableTemplate.CONNECT;
 });
