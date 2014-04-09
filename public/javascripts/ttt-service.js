@@ -5,11 +5,8 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
   self.peersId = '';
 
   self.peer.on('connection', function (conn) {
-    console.log(conn.peer);
     self.otherPeersId = conn.peer;
     conn.on('data', function (data) {
-      console.log(data);
-
       if (IndexService.template != IndexService.AvailableTemplate.PLAYING) {
         IndexService.template = IndexService.AvailableTemplate.PLAYING;
         IndexService.template = promiseBaby(IndexService.AvailableTemplate.PLAYING);
@@ -33,10 +30,9 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
   });
 
   self.connectToOtherPeer = function () {
-    IndexService.template = IndexService.AvailableTemplate.PLAYING;
     var conn = self.peer.connect(self.otherPeersId);
     conn.on('open', function () {
-      conn.send('Hey, other peer!');
+      conn.send('handshake');
     });
   };
 

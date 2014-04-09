@@ -1,7 +1,8 @@
-tttApp.controller('ConnectCtrl', function ($scope, TttService, $q, $rootScope) {
+tttApp.controller('ConnectCtrl', function ($scope, TttService, IndexService, $q, $rootScope) {
   $scope.startGame = function () {
     TttService.otherPeersId = $scope.otherPeersId;
     TttService.connectToOtherPeer();
+    IndexService.template = IndexService.AvailableTemplate.PLAYING;
   };
 
   TttService.peer.on('open', function (id) {
