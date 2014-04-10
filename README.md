@@ -9,7 +9,6 @@ Technology Stack
 - [Express](https://github.com/visionmedia/express)
 - [Node.js](https://github.com/joyent/node)
 - [Twitter Bootstrap](https://github.com/twbs/bootstrap)
-
 - [supervisor](https://github.com/isaacs/node-supervisor)
 - [reload](https://github.com/jprichardson/reload)
 
