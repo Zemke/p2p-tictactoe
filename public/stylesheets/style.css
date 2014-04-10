@@ -2,9 +2,19 @@
     font-family: "Lucida Grande", Ubuntu, Calibri, Tahoma, Verdana, sans-serif !important;
 }
 
+.mySign {
+    background: url('/images/circle.png') no-repeat center;
+    background-size: 75%;
+}
 
-div.container {
-    width: 500px;
+.friendsSign {
+    background: url('/images/cross.png') no-repeat center;
+    background-size: 75%;
+}
+
+.hovering {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* Microsoft Internet Explorer */
 }
 
 table {
@@ -12,22 +22,27 @@ table {
     width: 100%;
     margin-bottom: 50px;
 }
+
 table td, table th {
     border: 1px solid black;
     text-align: center;
     padding: 12%;
     vertical-align: middle;
 }
+
 table tr:first-child td {
     border-top: none !important;
 }
+
 table tr:last-child td {
     border-bottom: 0;
 }
+
 table tr td:first-child,
 table tr th:first-child {
     border-left: 0;
 }
+
 table tr td:last-child,
 table tr th:last-child {
     border-right: 0;

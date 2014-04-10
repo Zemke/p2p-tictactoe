@@ -1,7 +1,9 @@
 div(ng-controller="PlayingCtrl")
   p.lead
-    | You have connected with your friend — have fun playing!
+    | You have connected with your friend — have fun!
+    button.btn.btn-primary.btn-sm(type='button', style="float: right;", ng-click="tttService.clearBoard()") Clear
+
   table#board
     tr(ng-repeat="row in tttService.board track by $index")
-      td(ng-repeat="field in row track by $index", ng-click="tttService.placeMySignHere($parent.$index, $index)")
-        | {{field}}
+      td(ng-repeat="field in row track by $index", ng-click="tttService.placeMySignHere($parent.$index, $index)", ng-mouseover="tttService.mouseOver($parent.$index, $index)", ng-mouseleave="tttService.mouseLeave($parent.$index, $index)", class="{{field.class}}")
+        | &nbsp;

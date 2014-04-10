@@ -4,6 +4,6 @@ div(ng-controller="ConnectCtrl")
     br
     | Your ID: {{peersId}}
   form(ng-submit="startGame()").input-group
-    input.form-control(type="text", placeholder="Enter your friend's ID here and start playing.", ng-model="otherPeersId")
+    input.form-control(type="text", placeholder="Enter the ID of your friend here and start playing a round of Tic Tac Toe.", ng-model="otherPeersId")
     span.input-group-btn
       button.btn.btn-default(type="submit") Start the Game
