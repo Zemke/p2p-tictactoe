@@ -1,6 +1,6 @@
-tttApp.service('TttService', function ($q, $rootScope, IndexService) {
+tttApp.service('TttService', function ($q, $rootScope, IndexService, ErrorService) {
   var self = this;
-  self.peer = new Peer({key: '4o5t8qjc9ncrqkt9'}); // 4o5t8qjc9ncrqkt9
+  self.peer = new Peer({key: 'kjkjkj'}); // 4o5t8qjc9ncrqkt9
   self.otherPeersId = '';
   self.peersId = '';
 
@@ -33,6 +33,12 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
 
   self.peer.on('error', function (err) {
     console.error('error event emitted');
+    console.error(err.toString());
+    console.error(err.type);
+    ErrorService.error = err.toString();
+    ErrorService.errorType = err.type;
+    IndexService.template = IndexService.AvailableTemplate.ERROR;
+    IndexService.template = promiseBaby(IndexService.AvailableTemplate.ERROR);
   });
 
   self.connectToOtherPeer = function () {

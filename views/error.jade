@@ -1,11 +1,8 @@
 div(ng-controller="IndexCtrl")
-  | Sorry, apparently something has gone wrong on our part. Here's more information:
-  br
-  | {{errorService.error}}
-  br
-  | Type of error: {{errorService.errorType}}
-  br
-  | More information in the PeerJS docs:&nbsp;
-  a(href="http://peerjs.com/docs/#peeron-error", target="_blank")
-    | http://peerjs.com/docs/#peeron-error
+  p
+    | Sorry, apparently something has gone wrong. Here's more information:
+  p
+    | {{errorService.error}}
+    br
+    | Type: {{errorService.errorType}}
 
