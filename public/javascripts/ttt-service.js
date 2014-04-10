@@ -1,6 +1,6 @@
 tttApp.service('TttService', function ($q, $rootScope, IndexService, ErrorService) {
   var self = this;
-  self.peer = new Peer({key: 'kjkjkj'}); // 4o5t8qjc9ncrqkt9
+  self.peer = new Peer({key: '4o5t8qjc9ncrqkt9'}); // 4o5t8qjc9ncrqkt9
   self.otherPeersId = '';
   self.peersId = '';
 
