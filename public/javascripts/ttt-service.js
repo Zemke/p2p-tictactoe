@@ -47,8 +47,6 @@ tttApp.service('TttService', function ($q, $rootScope, IndexService) {
   self.placeMySignHere = function (x, y) {
     self.board[x][y] = 1;
 
-    console.log('self.otherPeersId: ' + self.otherPeersId);
-
     var conn = self.peer.connect(self.otherPeersId);
     conn.on('open', function () {
       conn.send([x, y]);
