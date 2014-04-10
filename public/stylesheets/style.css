@@ -2,6 +2,11 @@
     font-family: "Lucida Grande", Ubuntu, Calibri, Tahoma, Verdana, sans-serif !important;
 }
 
+
+div.container {
+    width: 500px;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
